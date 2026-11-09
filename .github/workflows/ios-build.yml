@@ -22,10 +22,10 @@ jobs:
 
       - name: Aplicar CONFIGURACION_IOS.md (Inyectar Info.plist)
         run: |
-          /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" ios/Runner/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSAllowsArbitraryLoads bool true" ios/Runner/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Add :FLTEnableImpeller string false" ios/Runner/Info.plist || true
-          /usr/libexec/PlistBuddy -c "Add :io.flutter.embedded_views_preview string YES" ios/Runner/Info.plist || true
+           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity dict" ios/Runner/Info.plist || true
+           /usr/libexec/PlistBuddy -c "Add :NSAppTransportSecurity:NSAllowsArbitraryLoads bool true" ios/Runner/Info.plist || true
+           /usr/libexec/PlistBuddy -c "Add :FLTEnableImpeller bool false" ios/Runner/Info.plist || true
+           /usr/libexec/PlistBuddy -c "Add :io.flutter.embedded_views_preview bool true" ios/Runner/Info.plist || true
 
       - name: Instalar dependencias
         run: flutter pub get
