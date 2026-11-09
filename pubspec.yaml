@@ -1,0 +1,41 @@
+name: ipad_jeal
+description: "iPad JEAL - Hub de servicios web ligeros para iPad con iOS 12 (A7 / 1 GB RAM)."
+publish_to: "none"
+version: 1.0.0+1
+
+# ---------------------------------------------------------------------------
+# IMPORTANTE - VERSION DE FLUTTER
+# ---------------------------------------------------------------------------
+# * Flutter 3.35+ exige iOS 13 como minimo  -> NO sirve para iOS 12.5.8.
+# * Flutter 3.29+ elimino Skia en iOS (Impeller obligatorio). En un chip A7
+#   con 1 GB de RAM, Skia es mas estable y ligero.
+# => La ultima version valida es Flutter 3.27.x (Dart 3.6). Usa 3.27.4:
+#      fvm install 3.27.4 && fvm use 3.27.4
+#    o bien:  git checkout 3.27.4  dentro del repo de Flutter.
+# Las restricciones de abajo impiden compilar por accidente con otra version.
+# ---------------------------------------------------------------------------
+environment:
+  sdk: ">=3.6.0 <3.7.0"
+  flutter: ">=3.27.0 <3.28.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # API publica del WebView (WKWebView en iOS).
+  webview_flutter: ^4.10.0
+
+  # Implementacion iOS. Fijada por debajo de 3.23.0 porque a partir de
+  # 3.23.1 se elimino el soporte para iOS < 13.
+  webview_flutter_wkwebview: ">=3.16.0 <3.23.0"
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
